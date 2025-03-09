@@ -42,7 +42,7 @@ public class UserController(
         var user = await GetAuthorizedUser(id);
         if (user is null)
             return Unauthorized();
-        return await userService.UpdatePassword(user, request.CurrentPassword, request.NewPassword);
+        return await userService.UpdatePasswordAsync(user, request.CurrentPassword, request.NewPassword);
     }
 
     [HttpPut("{id:guid}/avatar")]
